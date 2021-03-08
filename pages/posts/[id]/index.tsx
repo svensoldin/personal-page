@@ -1,9 +1,10 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import Layout from '../../../components/Layout.component';
 
 const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <main className='max-w-prose mx-auto'>
+  <Layout pageTitle={post.title}>
     <p>{post.body}</p>
-  </main>
+  </Layout>
 );
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
